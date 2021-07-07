@@ -188,7 +188,8 @@
             alpha += addAlpha;
             status5.textContent = alpha;
           } 
-          map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
+          //map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
+          map.getView().setRotation( alpha * (Math.PI / 180));
 
         }
         // window.addEventListener("deviceorientation", handleOrientation, true);
