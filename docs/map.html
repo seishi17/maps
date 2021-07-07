@@ -22,6 +22,7 @@
       <input type="checkbox" id="correct">補正</input><input type="checkbox" id="north">北</input>
     </div>
     <div id="map" class="map"></div>
+<!--<div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>-->
     <div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
@@ -59,7 +60,7 @@
         ],
         view: new ol.View({
           center: ol.proj.fromLonLat([38.41, 8.82]),
-          zoom: 14
+          zoom: 16
         })
       });
 
@@ -82,8 +83,8 @@
           const altitudeAccuracy = position.coords.altitudeAccuracy;
 
           // alert("lat:" + latitude + " / lon:" + longitude + " / heading:" + heading );
-          status.textContent = "lat:" + latitude + " / lon:" + longitude +
-             " / heading:" + heading + " / accuracy:" + accuracy + " / altitudeAccuracy:" + altitudeAccuracy;
+//          status.textContent = "lat:" + latitude + " / lon:" + longitude +
+//             " / heading:" + heading + " / accuracy:" + accuracy + " / altitudeAccuracy:" + altitudeAccuracy;
           // if (heading) {
           //   map.getView().setRotation(heading);
           // }
@@ -124,7 +125,7 @@
           if (absolute) {
             alphatxt = alphatxt + "*";
           }
-          status2.textContent = alphatxt;
+          status2.textContent = "zzz";
 
 
           var degtorad = Math.PI / 180; // Degree-to-Radian conversion
