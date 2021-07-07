@@ -27,6 +27,7 @@
     <div><span id="status2"></span></div>
     <div><span id="status3"></span></div>
     <div><span id="status4"></span></div>
+    <div><span id="status5"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
       const iconFeature = new ol.Feature({
@@ -83,6 +84,7 @@
         const status2 = document.querySelector('#status2');
         const status3 = document.querySelector('#status3');
         const status4 = document.querySelector('#status4');
+        const status5 = document.querySelector('#status5');
         // const mapLink = document.querySelector('#map-link');
 
         // mapLink.href = '';
@@ -178,10 +180,12 @@
           if(correctCheck) 
           {
             alpha += correctAlpha;
+            status5.textContent = alpha;
           }
           if(northCheck)
           {
             alpha += addAlpha;
+            status5.textContent = alpha;
           } 
           map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
 
