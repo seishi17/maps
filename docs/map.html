@@ -125,7 +125,6 @@
           if (absolute) {
             alphatxt = alphatxt + "*";
           }
-          status2.textContent = "zzz";
 
 
           var degtorad = Math.PI / 180; // Degree-to-Radian conversion
@@ -158,7 +157,7 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          alert(alpha+';'+correctAlpha);
+          status2.textContent = alpha+';'+correctAlpha;
           if(correctCheck) 
           {
             alpha = correctAlpha;
