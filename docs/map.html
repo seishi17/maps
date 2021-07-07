@@ -11,6 +11,9 @@
         height: 80%;
         width: 100%;
       }
+      .status{
+        font-size: 2rem;
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
     <title>OpenLayers example</title>
@@ -24,11 +27,12 @@
     </div>
     <div id="map" class="map"></div>
 <!--<div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>-->
-    <div style="font-size: 2rem"><span id="status"></span></div>
-    <div><span id="status2"></span></div>
-    <div><span id="status3"></span></div>
-    <div><span id="status4"></span></div>
-    <div><span id="status5"></span></div>
+    <div class="status"><span id="status"></span></div>
+    <div class="status"><span id="status2"></span></div>
+    <div class="status"><span id="status3"></span></div>
+    <div class="status"><span id="status4"></span></div>
+    <div class="status"><span id="status5"></span></div>
+    <div class="status"><span id="status6"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
       const iconFeature = new ol.Feature({
@@ -204,7 +208,7 @@
         //  ,true);
       }
       window.oncompassneedscalibration = function (e){
-        document.querySelector('#status5').textContent="need calibration";
+        document.querySelector('#status6').textContent="need calibration";
       };
       document.querySelector('#find-me').addEventListener('click', geoFindMe);
     </script>
