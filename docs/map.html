@@ -192,6 +192,11 @@
         }
         // window.addEventListener("deviceorientation", handleOrientation, true);
         window.addEventListener("deviceorientationabsolute", handleOrientation, true);
+        window.addEventListener("oncompassneedcalibration",
+          function(event){
+            status5.textContent="need calibration";
+          }
+          ,true);
       }
 
       document.querySelector('#find-me').addEventListener('click', geoFindMe);
