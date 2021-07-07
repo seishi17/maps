@@ -38,6 +38,15 @@
               src: 'Orion_pin.png'
           })
       });
+      const myStyle = new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 7,
+        fill: new ol.style.Fill({color: 'black'}),
+        stroke: new ol.style.Stroke({
+          color: [255,0,0], width: 2
+        })
+      })
+    })
 
       // Iconソース設定
       const vectorSource = new ol.source.Vector({
@@ -47,7 +56,7 @@
       // Iconレイヤ設定
       const vectorLayer = new ol.layer.Vector({
           source: vectorSource,
-          style: iconStyle
+          style: myStyle
       });
 
     
@@ -103,9 +112,9 @@
         }
 
         if(!navigator.geolocation) {
-          status.textContent = 'Geolocation is not supported by your browser';
+//          status.textContent = 'Geolocation is not supported by your browser';
         } else {
-          status.textContent = 'Locating…';
+//          status.textContent = 'Locating…';
           // navigator.geolocation.getCurrentPosition(success, error);
           navigator.geolocation.watchPosition(success, error, {enableHighAccuracy: true});
         }
@@ -173,41 +182,6 @@
         }
         // window.addEventListener("deviceorientation", handleOrientation, true);
         window.addEventListener("deviceorientationabsolute", handleOrientation, true);
-
-
-        // const sensor = new AbsoluteOrientationSensor();
-        // sensor.addEventListener('reading', () => {
-        //   // model is a Three.js object instantiated elsewhere.
-        //   // model.quaternion.fromArray(sensor.quaternion).inverse();
-        //   const q1 = sensor.quaternion[0];
-        //   const q2 = sensor.quaternion[1];
-        //   const q3 = sensor.quaternion[2];
-        //   const q4 = sensor.quaternion[3];
-        //   // https://www.kazetest.com/vcmemo/quaternion/quaternion.htm
-        //   // roll
-        //   const c = 2*(q1*q2 + q3*q4)/(Math.sqrt(q1) - Math.sqrt(q2) - Math.sqrt(q3) + Math.sqrt(q4));
-        //   const roll = Math.atan(Math.round(c * Math.pow( 10, 6 )) / Math.pow( 10, 6 ))
-        //   // pitch
-        //   // const pitch = Math.asin(Math.round(2*(q1*q3 - q2*q4) * Math.pow( 10, 6 )) / Math.pow( 10, 6 ))
-
-        //   console.log("sensor: " + roll);
-        // });
-        // sensor.addEventListener('error', error => {
-        //   if (event.error.name == 'NotReadableError') {
-        //     console.log("Sensor is not available.");
-        //   }
-        // });
-        // Promise.all([navigator.permissions.query({ name: "accelerometer" }),
-        //             navigator.permissions.query({ name: "magnetometer" }),
-        //             navigator.permissions.query({ name: "gyroscope" })])
-        //       .then(results => {
-        //         if (results.every(result => result.state === "granted")) {
-        //           const options = { frequency: 60, referenceFrame: 'device' };
-        //           sensor.start(options);
-        //         } else {
-        //           console.log("No permissions to use AbsoluteOrientationSensor.");
-        //         }
-        //   });
       }
 
       document.querySelector('#find-me').addEventListener('click', geoFindMe);
