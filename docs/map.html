@@ -25,6 +25,8 @@
 <!--<div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>-->
     <div style="font-size: 1rem"><span id="status"></span></div>
     <div><span id="status2"></span></div>
+    <div><span id="status3"></span></div>
+    <div><span id="status4"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
       const iconFeature = new ol.Feature({
@@ -79,6 +81,8 @@
       function geoFindMe() {
         const status = document.querySelector('#status');
         const status2 = document.querySelector('#status2');
+        const status3 = document.querySelector('#status3');
+        const status4 = document.querySelector('#status4');
         // const mapLink = document.querySelector('#map-link');
 
         // mapLink.href = '';
@@ -167,11 +171,13 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          status.textContent = alpha;
+          status.textContent = absolute +'--'+ alpha;
           status2.textContent = correctAlpha;
+          status3.textContent = gamma;
+          status4.textContent = beta;
           if(correctCheck) 
           {
-            alpha = correctAlpha;
+            alpha += correctAlpha;
           }
           if(northCheck)
           {
