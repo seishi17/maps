@@ -33,6 +33,7 @@
     <div class="status"><span id="status4"></span></div>
     <div class="status"><span id="status5"></span></div>
     <div class="status"><span id="status6"></span></div>
+    <div class="status"><span id="status7"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
       const iconFeature = new ol.Feature({
@@ -201,6 +202,9 @@
         }
         // window.addEventListener("deviceorientation", handleOrientation, true);
         window.addEventListener("deviceorientationabsolute", handleOrientation, true);
+        window.addEventListener("deviceorientation",function(e){
+          document.querySelector('#status7').textContente = "Ac7:" + e.webkitCompassAccuracy;
+        },true)
         //window.addEventListener("compassneedscalibration",
         //  function(event){
         //    status5.textContent="need calibration";
