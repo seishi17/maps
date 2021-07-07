@@ -40,10 +40,10 @@
       });
       const myStyle = new ol.style.Style({
       image: new ol.style.Circle({
-        radius: 7,
-        fill: new ol.style.Fill({color: 'black'}),
+        radius: 10,
+        fill: new ol.style.Fill({color: 'Blue'}),
         stroke: new ol.style.Stroke({
-          color: [255,0,0], width: 2
+          color: [0,0,200], width: 2
         })
       })
     })
@@ -167,7 +167,7 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          status.textContent = alpha+';'+correctAlpha;
+          status.textContent = alpha;
           status2.textContent = correctAlpha;
           if(correctCheck) 
           {
