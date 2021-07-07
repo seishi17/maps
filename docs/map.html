@@ -135,6 +135,7 @@
           var alpha    = event.alpha;
           var beta     = event.beta;
           var gamma    = event.gamma;
+          var compassAccuracy = event.webkitCompassAccuracy;
           var northCheck = document.querySelector('#north').checked;
           var correctCheck = document.querySelector('#correct').checked;
 
@@ -174,10 +175,11 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          status.textContent =  Math.round(alpha*10)/10;
-          status2.textContent = correctAlpha;
-          status3.textContent = Math.round(gamma*10)/10;
-          status4.textContent = Math.round(beta*10)/10;
+          status.textContent =  "Al:"+ Math.round(alpha*10)/10;
+          status2.textContent = "Gm:"+ Math.round(gamma*10)/10;
+          status3.textContent = "Bt:"+ Math.round(beta*10)/10;
+          status4.textContent = Math.round(-(360-alpha)*10/10);
+          status5.textContent = "Ac:" + compassAccuracy;
           if(correctCheck) 
           {
             alpha += correctAlpha;
