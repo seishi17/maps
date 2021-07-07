@@ -157,8 +157,15 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          if(correctCheck) alpha = correctAlpha;
-          if(northCheck) alpha += addAlpha;
+          if(correctCheck) 
+          {
+            alert(alpha+';'+correctAlpha);
+            alpha = correctAlpha;
+          }
+          if(northCheck)
+          {
+            alpha += addAlpha;
+          } 
           map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
 
         }
