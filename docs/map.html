@@ -19,8 +19,8 @@
     <div style="font-size: 2rem">
       <button id="find-me" style="height: 5rem; font-size: 2rem;">現在地表示</button>
       <span style="padding-left: .2rem;">v8</span>
-      <input type="checkbox" id="correct" style="transform:scale(3.0);">補正</input>
-      <input type="checkbox" id="north" style="transform:scale(3.0);">北</input>
+      <input type="checkbox" id="correct" style="transform:scale(3.0);"></input><label style="padding-left: 1rem;" for="correct">補正</label>
+      <input type="checkbox" id="north" style="transform:scale(3.0);"></input><label  style="padding-left: 1rem;" for="north">北</label>
     </div>
     <div id="map" class="map"></div>
 <!--<div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>-->
@@ -74,7 +74,7 @@
         ],
         view: new ol.View({
           center: ol.proj.fromLonLat([38.41, 8.82]),
-          zoom: 16
+          zoom: 18
         })
       });
 
@@ -174,11 +174,12 @@
 
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
-          var addAlpha = 7;
+          var addAlpha = -7.5;
           status.textContent =  "Al:"+ Math.round(alpha*10)/10;
           status2.textContent = "Gm:"+ Math.round(gamma*10)/10;
           status3.textContent = "Bt:"+ Math.round(beta*10)/10;
-          status4.textContent = Math.round(-(360-alpha)*10/10);
+          //status4.textContent = Math.round(-(360-alpha)*10/10);
+          status4.textContent = "Cor:" + correctAlpha;
           status5.textContent = "Ac:" + compassAccuracy;
           if(correctCheck) 
           {
@@ -190,13 +191,13 @@
             alpha += addAlpha;
             status5.textContent = alpha;
           } 
-          map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
-          //map.getView().setRotation( alpha * (Math.PI / 180));
+          //map.getView().setRotation(-((360 - alpha) * (Math.PI / 180)));
+          map.getView().setRotation( alpha * (Math.PI / 180));
 
         }
         // window.addEventListener("deviceorientation", handleOrientation, true);
         window.addEventListener("deviceorientationabsolute", handleOrientation, true);
-        window.addEventListener("oncompassneedscalibration",
+        window.addEventListener("compassneedscalibration",
           function(event){
             status5.textContent="need calibration";
           }
