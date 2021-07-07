@@ -23,7 +23,8 @@
     </div>
     <div id="map" class="map"></div>
 <!--<div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>-->
-    <div style="font-size: 1rem"><span id="status"></span><span id="status2"></span></div>
+    <div style="font-size: 1rem"><span id="status"></span></div>
+    <div><span id="status2"></span></div>
     <script type="text/javascript">
       // Iconオブジェクト設定
       const iconFeature = new ol.Feature({
@@ -157,7 +158,8 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          status2.textContent = alpha+';'+correctAlpha;
+          status.textContent = alpha+';'+correctAlpha;
+          status2.textContent = correctAlpha;
           if(correctCheck) 
           {
             alpha = correctAlpha;
