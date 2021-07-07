@@ -190,7 +190,8 @@
           status6.textContent = event;
           if(correctCheck) 
           {
-            alpha += correctAlpha;
+            //alpha += correctAlpha;
+            alpha = correctAlpha*180/Math.PI;
             status5.textContent = Math.round(alpha*10)/10;
           }
           if(northCheck)
