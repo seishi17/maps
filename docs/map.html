@@ -173,10 +173,10 @@
           //var correctAlpha = compassHeading * (180 / Math.PI); 
           var correctAlpha = compassHeading; 
           var addAlpha = 7;
-          status.textContent = absolute +'--'+ alpha;
+          status.textContent =  Math.round(alpha*10)/10;
           status2.textContent = correctAlpha;
-          status3.textContent = gamma;
-          status4.textContent = beta;
+          status3.textContent = Math.round(gamma*10)/10;
+          status4.textContent = Math.round(beta*10)/10;
           if(correctCheck) 
           {
             alpha += correctAlpha;
