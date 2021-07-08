@@ -215,8 +215,20 @@
         //  }
         //  ,true);
       }
+      document.querySelector('#status6').textContent="not find compass";
+      document.querySelector('#status7').textContent="not find magneto";
+      var compass = Windows.Devices.Sensors.Compass.getDefault();
+      if(compass)
+      {
+        document.querySelector('#status6').textContent="find compass!!";
+      }
+      var magneto = new Magnetometer();
+      if(magneto)
+      {
+        document.querySelector('#status7').textContent="find magneto!!";
+      }
+
       window.oncompassneedscalibration = function (e){
-        document.querySelector('#status6').textContent="need calibration";
       };
       document.querySelector('#find-me').addEventListener('click', geoFindMe);
       var gn = new GyroNorm();
