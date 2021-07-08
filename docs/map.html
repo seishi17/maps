@@ -188,7 +188,8 @@
           //status4.textContent = Math.round(-(360-alpha)*10/10);
           status4.textContent = "Cor:" + Math.round(correctAlpha*180/Math.PI*10)/10;
           //status6.textContent = "Ac:" + compassAccuracy;
-          status6.textContent = event;
+          //status6.textContent = event;
+          each(event,function(e){status6.textContent+=':'+e;});
           if(correctCheck) 
           {
             //alpha += correctAlpha;
