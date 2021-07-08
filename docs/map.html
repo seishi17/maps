@@ -190,7 +190,10 @@
           //status6.textContent = "Ac:" + compassAccuracy;
           status6.textContent = event;
           //each(event,function(e){status6.textContent+=':'+e;});
-          alert(event.length);
+          for(let key in event)
+          {
+            alert('key:' + key + ' value:' + event[key]);
+          }
           if(correctCheck) 
           {
             //alpha += correctAlpha;
